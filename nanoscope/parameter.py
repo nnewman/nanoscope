@@ -30,7 +30,7 @@ class CiaoParameter(object):
         return self.__str__()
 
     def __eq__(self, other):
-        return (self.parameter == other.parameter and
+        return (self.parameter == other.parameter and  # noqa: W504
                 self.hard_value == other.hard_value)
 
     def __ne__(self, other):
@@ -51,7 +51,7 @@ class CiaoParameter(object):
         """
         try:
             return datetime.datetime.strptime(value, '%I:%M:%S %p %a %b %d %Y')
-        except:
+        except:  # noqa: E722
             try:
                 split_value = value.strip().split(' ')[0]
                 if split_value in ('', 'None'):
@@ -84,9 +84,9 @@ class CiaoValue(CiaoParameter):
                                              self.hard_scale, self.hard_value)
 
     def __eq__(self, other):
-        return (self.parameter == other.parameter and
-                self.soft_scale == other.soft_scale and
-                self.hard_scale == other.hard_scale and
+        return (self.parameter == other.parameter and  # noqa: W504
+                self.soft_scale == other.soft_scale and  # noqa: W504
+                self.hard_scale == other.hard_scale and  # noqa: W504
                 self.hard_value == other.hard_value)
 
     def _parse_value(self, value):
@@ -95,7 +95,7 @@ class CiaoValue(CiaoParameter):
 
         try:
             return datetime.datetime.strptime(value, '%I:%M:%S %p %a %b %d %Y')
-        except:
+        except:  # noqa: E722
             if value.strip() in ('', 'None'):
                 return None
             try:
@@ -120,8 +120,8 @@ class CiaoScale(CiaoParameter):
                                        self.hard_value)
 
     def __eq__(self, other):
-        return (self.parameter == other.parameter and
-                self.soft_scale == other.soft_scale and
+        return (self.parameter == other.parameter and  # noqa: W504
+                self.soft_scale == other.soft_scale and  # noqa: W504
                 self.hard_value == other.hard_value)
 
 
@@ -142,8 +142,8 @@ class CiaoSelect(CiaoParameter):
                                          self.external)
 
     def __eq__(self, other):
-        return (self.parameter == other.parameter and
-                self.internal == other.internal and
+        return (self.parameter == other.parameter and  # noqa: W504
+                self.internal == other.internal and  # noqa: W504
                 self.external == other.external)
 
 

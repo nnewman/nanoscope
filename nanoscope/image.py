@@ -108,9 +108,12 @@ class NanoscopeImage(object):
                              'currently supported'.format(colortable))
 
         colors = self.supported_colortables[colortable]
-        get_color = (lambda v:
-            np.array([colors[c]((v + (self.height_scale / 2)) /
-                                self.height_scale) for c in 'rgb']))
+        get_color = (
+            lambda v: np.array([colors[c](
+                (v + (self.height_scale / 2)) / self.height_scale)
+                for c in 'rgb']
+            )
+        )
         if self.converted_data is None:
             self.converted_data = self.data
 
