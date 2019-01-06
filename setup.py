@@ -39,9 +39,9 @@ def find_version(filename, encoding='utf-8'):
 
 
 requirements = [
-    'numpy>=1.9,<1.11',
+    'numpy>=1.15,<1.16',
     'six>=1.8,<2',
-    'astropy>=1.3,<2.0',
+    'astropy>=2,<3',
 ]
 
 
@@ -67,6 +67,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering',
     ],
 )
